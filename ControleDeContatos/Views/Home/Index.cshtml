@@ -1,0 +1,15 @@
+﻿@{
+    ViewData["Title"] = "Página inicial";
+}
+
+<div class="text-center">
+    <p>Sistema de controle de Contatos</p>
+</div>
+
+
+@if (TempData["Success"] != null)
+{
+    <div class="bearer alert-success">
+        <p class="text-justify">@TempData["Success"]</p>
+    </div>
+}

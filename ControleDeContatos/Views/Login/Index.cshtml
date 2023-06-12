@@ -1,0 +1,32 @@
+﻿@model LoginModel
+@{
+    Layout = "_Layout_Deslogada";
+    ViewData["Title"] = "Login";
+}
+
+<div id="telaLogin">
+
+    @if (TempData["Fail"] != null)
+    {
+        <div class="alert alert-danger" role="alert">
+            @TempData["Fail"]
+        </div>
+    }
+    <div class="row justify-content-center align-items-center">
+        <form class="form-signin col-8 col-md-6 col-lg-4" method="post" asp-controller="Login" asp-action="Entrar">
+
+            <h1 class="h3 mb-3 font-weight-normal text-center" accesskey="">Login</h1>
+            <label for="inputEmail" class="sr-only">Usuário</label>
+            <input asp-for="Login" type="text" id="inputLogin" class="form-control" placeholder="Digite seu usuário" required="" autofocus="">
+            @Html.ValidationMessageFor(x => x.Login)
+            <label for="inputPassword" class="sr-only">Senha</label>
+            <input asp-for="Senha" type="password" id="inputPassword" class="form-control" placeholder="Digite sua senha" required="">
+            @Html.ValidationMessageFor(x => x.Senha)
+            <div class="checkbox mb-3">
+                <a asp-controller="Login" asp-action="Esqueci">Esqueci minha senha.</a>
+            </div>
+            <button class="btn btn-lg btn-primary btn-block" type="submit">Entrar</button>
+            <p class="mt-5 mb-3 text-muted">© 2023</p>
+        </form>
+    </div>
+</div>
